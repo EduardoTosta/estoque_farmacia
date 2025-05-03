@@ -8,6 +8,6 @@ public interface EstoqueRepository {
 	public void procurarPorNumero(int numero);
 	public void listarTodas();
 	public void cadastrar(Produto produto);
-	public void atualizar(Produto conta);
+	public void atualizar(Produto produto);
 	public void deletar(int numero);
 }

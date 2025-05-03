@@ -2,29 +2,29 @@ package estoque_farmacia.model;
 
 public class Cosmeticos extends Produto{
 	
-	private String fragancia;
+	private String fragrancia;
 
 	//Metodo Construtor
-	public Cosmeticos(int id, int tipo, String nome, float preco, String fragancia) {
+	public Cosmeticos(int id, int tipo, String nome, float preco, String fragrancia) {
 		super(id, tipo, nome, preco);
-		this.fragancia = fragancia;
+		this.fragrancia = fragrancia;
 	}
 
 
 	//Metodos
 	public void visualizar() {
 		super.visualizar();
-		System.out.println(getFragancia());
+		System.out.println(getFragrancia());
 	}
 	
 	
 	//Getters e Setters
-	public String getFragancia() {
-		return fragancia;
+	public String getFragrancia() {
+		return fragrancia;
 	}
 
-	public void setFragancia(String fragancia) {
-		this.fragancia = fragancia;
+	public void setFragancia(String fragrancia) {
+		this.fragrancia = fragrancia;
 	}
 	
 	
