@@ -18,8 +18,6 @@ public class Cosmeticos extends Produto{
 	}
 	
 	
-	
-	
 	//Getters e Setters
 	public String getFragancia() {
 		return fragancia;
