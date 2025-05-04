@@ -10,6 +10,7 @@ public class EstoqueController implements EstoqueRepository{
 	
 	//Criar collection array list
 	private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+    Scanner leia = new Scanner(System.in);
 	
 	//Variável para controlar o numero das contas
 	int numero = 0;
@@ -41,7 +42,6 @@ public class EstoqueController implements EstoqueRepository{
 
 	@Override
 	public void atualizar(Produto produto) {
-	    Scanner leia = new Scanner(System.in);
 
 	    Produto existente = buscarNaCollection(produto.getId());
 
