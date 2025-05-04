@@ -1,4 +1,4 @@
-package conta_bancaria.repository;
+package estoque_farmacia.repository;
 
 import estoque_farmacia.model.Produto;
 

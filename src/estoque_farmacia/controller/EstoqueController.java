@@ -3,8 +3,8 @@ package estoque_farmacia.controller;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import conta_bancaria.repository.EstoqueRepository;
 import estoque_farmacia.model.Produto;
+import estoque_farmacia.repository.EstoqueRepository;
 
 public class EstoqueController implements EstoqueRepository{
 	
