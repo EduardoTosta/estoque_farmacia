@@ -15,18 +15,19 @@ public class EstoqueController implements EstoqueRepository{
 	
 	@Override
 	public void procurarPorNumero(int numero) {
-	
-	}
-
-	@Override
-	public void listarTodas() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
+	public void listarTodas() {
+		for(var produto : listaProdutos)
+			produto.visualizar();
+	}
+
+	@Override
 	public void cadastrar(Produto produto) {
-		// TODO Auto-generated method stub
+		listaProdutos.add(produto);
+		System.out.println("Produto adcionado com sucesso!");
 		
 	}
 
@@ -38,7 +39,6 @@ public class EstoqueController implements EstoqueRepository{
 
 	@Override
 	public void deletar(int numero) {
-		// TODO Auto-generated method stub
 		
 	}
 	
