@@ -17,11 +17,14 @@ public abstract class Produto {
 
 	//Metodos 
 	public void visualizar() {
-		System.out.println(this.getId());
-		System.out.println(this.getTipo());
-		System.out.println(this.getNome());
-		System.out.println(this.getPreco());
+	    System.out.println("-----------------------------");
+	    System.out.println("ID: " + this.id);
+	    System.out.println("Tipo: " + this.tipo);
+	    System.out.println("Nome: " + this.nome);
+	    System.out.println("Preço: R$ " + this.preco);
+	    System.out.println("-----------------------------");
 	}
+
 	
 	
 	//Getters e Setters
