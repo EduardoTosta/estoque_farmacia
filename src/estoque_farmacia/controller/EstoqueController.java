@@ -1,8 +1,11 @@
 package estoque_farmacia.controller;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.IOException;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 import estoque_farmacia.model.Produto;
 import estoque_farmacia.repository.EstoqueRepository;
 
@@ -10,6 +13,7 @@ public class EstoqueController implements EstoqueRepository{
 	
 	//Criar collection array list
 	private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+	
     Scanner leia = new Scanner(System.in);
 	
 	//Variável para controlar o numero das contas
@@ -23,15 +27,34 @@ public class EstoqueController implements EstoqueRepository{
 			produto.visualizar();
 		else
 			System.out.println("O Produto não foi encontrado");
-		
-			
 	}
 
 	@Override
 	public void listarTodas() {
-		for(var produto : listaProdutos)
-			produto.visualizar();
+		if(listaProdutos.isEmpty()) {
+			System.out.println("Nenhum produto cadastrado!");
+		}else {
+			System.out.println("Produtos cadastrados: ");
+			for(var produto : listaProdutos)
+				produto.visualizar();
+		}
+		
 	}
+	
+	@Override
+	public void listarPorFiltro(int tipo) {
+		List<Produto> filtraTipo = listaProdutos.stream()
+				.filter(p -> p.getTipo() == tipo)
+				.collect(Collectors.toList());
+				
+		if (filtraTipo.isEmpty()) {
+			System.out.println("Nenhum produto encontrado para o tipo informado.");
+	    } else {
+	    	for (Produto produto : filtraTipo) 
+		            produto.visualizar();        
+		  }
+	}
+	
 
 	@Override
 	public void cadastrar(Produto produto) {
@@ -49,12 +72,6 @@ public class EstoqueController implements EstoqueRepository{
 	        int opcao;
 
 	        do {
-	            System.out.println("\nO que deseja atualizar no produto ID " + produto.getId() + "?");
-	            System.out.println("1 - Tipo");
-	            System.out.println("2 - Nome");
-	            System.out.println("3 - Preço");
-	            System.out.println("0 - Sair");
-	            System.out.print("Opção: ");
 	            opcao = leia.nextInt();
 	            leia.nextLine(); // limpar o buffer
 
@@ -64,21 +81,29 @@ public class EstoqueController implements EstoqueRepository{
 	                    int novoTipo = leia.nextInt();
 	                    existente.setTipo(novoTipo);
 	                    System.out.println("Tipo atualizado com sucesso!");
+	                    
+	                    keyPress();
 	                    break;
 	                case 2:
 	                    System.out.print("Novo nome: ");
 	                    String novoNome = leia.nextLine();
 	                    existente.setNome(novoNome);
 	                    System.out.println("Nome atualizado com sucesso!");
+	                    
+	                    keyPress();
 	                    break;
 	                case 3:
 	                    System.out.print("Novo preço: ");
 	                    float novoPreco = leia.nextFloat();
 	                    existente.setPreco(novoPreco);
 	                    System.out.println("Preço atualizado com sucesso!");
+	                    
+	                    keyPress();
 	                    break;
 	                case 0:
 	                    System.out.println("Saindo da atualização...");
+	                    
+	                    keyPress();
 	                    break;
 	                default:
 	                    System.out.println("Opção inválida. Tente novamente.");
@@ -113,4 +138,20 @@ public class EstoqueController implements EstoqueRepository{
 		}
 		return null;
 	}
+	
+	
+	//Antes de cada break do switch case, deve-se colocar uma chamada para o KeyPress
+		public static void keyPress() {
+	 		try {
+	  
+	 			System.out.println("\n\nPressione Enter para Continuar...");
+	 			System.in.read();
+	  
+	 		} catch (IOException e) {
+	  
+	 			System.err.println("Ocorreu um erro ao tentar ler o teclado");
+	  
+	 		}
+		}
+
 }

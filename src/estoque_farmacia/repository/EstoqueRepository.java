@@ -7,6 +7,7 @@ public interface EstoqueRepository {
 	//Métodos do CRUD (Create, Read, Update e Delete)
 	public void procurarPorNumero(int numero);
 	public void listarTodas();
+	public void listarPorFiltro(int tipo);
 	public void cadastrar(Produto produto);
 	public void atualizar(Produto produto);
 	public void deletar(int numero);
