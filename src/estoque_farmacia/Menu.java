@@ -43,6 +43,9 @@ public class Menu {
                     id = scanner.nextInt();
                     System.out.print("Tipo do Produto (1-Medicamento || 2-Cosmético): ");
                     tipo = scanner.nextInt();
+                    
+                    
+                    
                     scanner.nextLine(); // Limpa buffer
                     System.out.print("Nome do Produto: ");
                     nome = scanner.nextLine();
